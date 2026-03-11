@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lời chúc</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+font-family:sans-serif;
+background: linear-gradient(135deg,#ff0080,#000000);
+}
+
+/* chữ chính */
+
+.text{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+font-size:45px;
+color:#ffb6d9;
+text-shadow:0 0 10px #ff66b2,0 0 40px #ff0080;
+animation:nhapnhay 2s infinite alternate;
+}
+
+@keyframes nhapnhay{
+from{opacity:0.7;}
+to{opacity:1;}
+}
+
+/* trái tim rơi */
+
+.fall{
+position:absolute;
+color:#ff4da6;
+font-size:20px;
+animation:roi 6s linear infinite;
+}
+
+@keyframes roi{
+0%{transform:translateY(-10px);opacity:1;}
+100%{transform:translateY(100vh);opacity:0;}
+}
+
+/* trái tim click */
+
+.heart{
+position:absolute;
+font-size:25px;
+color:red;
+animation:bay 3s forwards;
+}
+
+@keyframes bay{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-200px);opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="text">Buổi trưa vui vẻ nha em ! 💗</div>
+
+<script>
+
+/* tạo trái tim rơi */
+
+setInterval(()=>{
+let heart=document.createElement("div")
+heart.innerHTML="💗"
+heart.className="fall"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(15+Math.random()*20)+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},6000)
+
+},300)
+
+/* click tạo tim bay */
+
+document.addEventListener("click",function(e){
+
+let heart=document.createElement("div")
+
+heart.innerHTML="❤️"
+
+heart.className="heart"
+
+heart.style.left=e.clientX+"px"
+heart.style.top=e.clientY+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},3000)
+
+})
+
+</script>
+
+</body>
+</html>
